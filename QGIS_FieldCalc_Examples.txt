@@ -1,0 +1,215 @@
+EXAMPLE 1: CBECS square meter to gas consumption expression. (kWh)
+CASE 
+  WHEN      "Year"       <=     1959   THEN 138.8  *    "TotFlrM2"   
+  WHEN      "Year"         >=     1960 and   "Year"   <= 1989 THEN 135.7  *    "TotFlrM2"  
+  WHEN      "Year"         >=      1990   THEN 139.4  *    "TotFlrM2"  
+    ELSE NULL
+END
+
+EXAMPLE 2: RECS SFR square meter to gas consumption expression. (kWh)
+CASE 
+  WHEN    "Year"      <     1950   THEN 107.6  *  "TotFlrM2" 
+  WHEN    "Year"       >=     1950 and "Year"  <=  1959 THEN 119.6  *  "TotFlrM2"
+  WHEN    "Year"       >=     1960 and "Year"  <=  1969 THEN 110.1  *  "TotFlrM2"
+  WHEN    "Year"       >=     1970 and "Year"  <=  1979 THEN 111.7  *  "TotFlrM2"
+  WHEN    "Year"       >=     1980 and "Year"  <=  1989 THEN 102.8 *  "TotFlrM2"
+  WHEN    "Year"       >=     1990 and "Year"  <=  1999 THEN 103.2  *  "TotFlrM2"
+  WHEN    "Year"       >=     2000 and "Year"  <=  2009 THEN 95.9  *  "TotFlrM2"
+  WHEN    "Year"       >=     2010 THEN 98.7  *  "TotFlrM2"
+    ELSE NULL
+END
+
+EXAMPLE 3: Interpreting number of homes by structure type.
+if( "Homes" is null, CASE
+WHEN  "PrimaryImp" =  'Automobile Service Center' THEN 1
+WHEN  "PrimaryImp" =   'Bank'  THEN 1 WHEN  "PrimaryImp" =   'Beauty Salon' THEN 1 
+WHEN  "PrimaryImp" =   'Bowling Alley'  THEN 3 
+WHEN  "PrimaryImp" =   'Bulk Oil Storage'  THEN 1
+WHEN  "PrimaryImp" =   'Carwash'  THEN 1 
+WHEN  "PrimaryImp" =   'Church'  THEN 2
+WHEN  "PrimaryImp" =   'Clubhouse'  THEN 2
+WHEN  "PrimaryImp" =   'Cold Storage Facility'  THEN 1
+WHEN  "PrimaryImp" =   'Community Center'  THEN 3
+WHEN  "PrimaryImp" =   'Community Service Building'  THEN 3
+WHEN  "PrimaryImp" =   'Condominium'  THEN 2
+WHEN  "PrimaryImp" =   'Convalescent Hospital'  THEN 12
+WHEN  "PrimaryImp" =   'Convention Center'  THEN 8
+WHEN  "PrimaryImp" =   'Day Care Center'  THEN 2
+WHEN  "PrimaryImp" =   'Dental Office/Clinic'  THEN 2
+WHEN  "PrimaryImp" =   'Discount Store'  THEN 2
+WHEN  "PrimaryImp" =   'Discount Warehouse Store'  THEN 3
+WHEN  "PrimaryImp" =   'Duplex'  THEN 2
+WHEN  "PrimaryImp" =   'Farm Utility Building'  THEN 0
+WHEN  "PrimaryImp" =   'Fire Station'  THEN 2
+WHEN  "PrimaryImp" =   'Fitness Center'  THEN 4
+WHEN  "PrimaryImp" =   'Fraternal Building'  THEN 2
+WHEN  "PrimaryImp" =   'Governmental Building'  THEN 3
+WHEN  "PrimaryImp" =   'Grain Storage'  THEN 0
+WHEN  "PrimaryImp" =   'Health Club'  THEN 4
+WHEN  "PrimaryImp" =   'Home for the Elderly'  THEN 12
+WHEN  "PrimaryImp" =   'Hotel'  THEN 50
+WHEN  "PrimaryImp" =   'Household, 2-4 Units'  THEN 4
+WHEN  "PrimaryImp" =   'Industrial Building'  THEN 2
+WHEN  "PrimaryImp" =   'Kennels'  THEN 0
+WHEN  "PrimaryImp" =   'Laundromat / Dry Cleaners'  THEN 5
+WHEN  "PrimaryImp" =   'Library'  THEN 2
+WHEN  "PrimaryImp" =   'Low Rise Multiple'  THEN 6
+WHEN  "PrimaryImp" =   'Manufactured Home'  THEN 1
+WHEN  "PrimaryImp" =   'Market'  THEN 2
+WHEN  "PrimaryImp" =   'Market, Convenience'  THEN 1
+WHEN  "PrimaryImp" =   'Medical Office'  THEN 3
+WHEN  "PrimaryImp" =   'Mini Storage Facility'  THEN 0
+WHEN  "PrimaryImp" =   'Mini-Lube Garage'  THEN 1
+WHEN  "PrimaryImp" =   'Mini-Mart Convenience Store'  THEN 1
+WHEN  "PrimaryImp" =   'Miscellaneous Ag Structure(s)'  THEN 0
+WHEN  "PrimaryImp" =   'Miscellaneous Structure(s)'  THEN 0
+WHEN  "PrimaryImp" =   'Mixed Retail /w Office Units'  THEN 6
+WHEN  "PrimaryImp" =   'Mixed Retail /w Res Units'  THEN 10
+WHEN  "PrimaryImp" =   'Mobile Home'  THEN 1
+WHEN  "PrimaryImp" =   'Mobile Home Park'  THEN 1
+WHEN  "PrimaryImp" =   'Mortuary'  THEN 2
+WHEN  "PrimaryImp" =   'Motel'  THEN 15
+WHEN  "PrimaryImp" =   'Office Building'  THEN 6
+WHEN  "PrimaryImp" =   'Parking Lot'  THEN 0
+WHEN  "PrimaryImp" =   'Post Office'  THEN 1
+WHEN  "PrimaryImp" =   'Rectory'  THEN 1
+WHEN  "PrimaryImp" =   'Resort'  THEN 30
+WHEN  "PrimaryImp" =   'Restaurant'  THEN 3
+WHEN  "PrimaryImp" =   'Restaurant, Fast Food'  THEN 2
+WHEN  "PrimaryImp" =   'Retail Store'  THEN 1
+WHEN  "PrimaryImp" =   'Retirement Community Complex'  THEN 10
+WHEN  "PrimaryImp" =   'Roadside Market'  THEN 1
+WHEN  "PrimaryImp" =   'RV Park'  THEN 1
+WHEN  "PrimaryImp" =   'School'  THEN 8
+WHEN  "PrimaryImp" =   'Senior Center'  THEN 2
+WHEN  "PrimaryImp" =   'Service Repair Garage'  THEN 1
+WHEN  "PrimaryImp" =   'Service Station'  THEN 2
+WHEN  "PrimaryImp" =   'Shop (Equipment) Building'  THEN 1
+WHEN  "PrimaryImp" =   'Shopping Center'  THEN 6
+WHEN  "PrimaryImp" =   'Showroom'  THEN 2
+WHEN  "PrimaryImp" =   'Single Family Residence'  THEN 1
+WHEN  "PrimaryImp" =   'Skating Rink'  THEN 2
+WHEN  "PrimaryImp" =   'Storage Building'  THEN 0
+WHEN  "PrimaryImp" =   'Storage Garage'  THEN 0
+WHEN  "PrimaryImp" =   'Tavern/Bar'  THEN 2
+WHEN  "PrimaryImp" =   'Theater - Cinema'  THEN 4
+WHEN  "PrimaryImp" =   'Utility Building'  THEN 0
+WHEN  "PrimaryImp" =   'Veterinary Hospital'  THEN 4
+WHEN  "PrimaryImp" =   'Warehouse' THEN 0
+WHEN  "PrimaryImp" =   'Warehouse Showroom Store'  THEN 1
+ ELSE  "Homes" 
+END, "Homes" )
+
+EXAMPLE 4: Interpreting the number of homes from a residential property revenue table, where the number of living units is directly listed.
+if( "R_Units"  is null, NULL,  "R_Units" )
+
+EXAMPLE 5: Taking the number of stories from the parcel data and consolidating it to a single column. This expression is run for residential, commericial, and tax exempt properties - in accordance with the availability of building tax information.
+if( "stories"  is null, CASE 
+WHEN      "I_Flrs"      =       1      THEN 1
+WHEN      "I_Flrs"      =        2       THEN 2
+WHEN      "I_Flrs"      =        3       THEN 3
+WHEN      "I_Flrs"      =        4       THEN 4
+ ELSE NULL
+END,    "stories"  )
+
+EXAMPLE 6: Interpreting the number of stories by the building height. This method introduces more uncertainty than taking the number of floors directly from property tax information.
+if( "stories"  is null, CASE 
+WHEN        "BLDGHEIGHT"        =         16        THEN 1.5
+WHEN        "BLDGHEIGHT"        =        20       THEN 2
+WHEN        "BLDGHEIGHT"        =         26.5        THEN 2.5
+WHEN        "BLDGHEIGHT"        =         31.1        THEN 3
+WHEN        "BLDGHEIGHT"        =         43        THEN 4
+WHEN        "BLDGHEIGHT"        =         58.7        THEN 5
+ ELSE NULL
+END,    "stories"  )
+
+EXAMPLE 7: Taking the year of construction directly from the residential and commercial parcel files.
+if("YearBuilt" is null,  "R_YearBuilt" , null)
+if("YearBuilt" is null,   "C1YearBuilt"  ,   "YearBuilt" )
+
+EXAMPLE 8: Interpreting the building types in revenue files to building typologies in Dalla Rosa et al., (2012).
+if(   "Archetype"    is null, CASE 
+  WHEN    "C1StructureType_Desc"     =     '101 - Residential, 1-family'    THEN 'SFR'
+ WHEN    "C1StructureType_Desc"     =      '102 - Residential, 2-family'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '103 - Residential, 3-family'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '104 - Residential, 4-family'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '105 - Mixed Res/Com (built as Res)'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '106 - Condominium (common element)'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '211 - Apartments, Garden (3 stories & less)'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '212 - Apartments, High Rise'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '214 - Assisted Living Facility'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '314 - Hotel/Motel, High Rise (5 stories & up)'    THEN 'Large Hotel'
+ WHEN    "C1StructureType_Desc"     =      '315 - Hotel/Motel, Low Rise (1 to 4 stories)'     THEN 'Small Hotel'
+ WHEN    "C1StructureType_Desc"     =      '316 - Nursing Home'     THEN 'Hospital'
+ WHEN    "C1StructureType_Desc"     =      '318 - Boarding/Rooming House'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '319 - Mixed Res/Com (build as com)'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '321 - Restaurant'     THEN 'Full Service restaurant'
+ WHEN    "C1StructureType_Desc"     =      '325 - Fast Food'     THEN 'Quick Service Restaurant'
+ WHEN    "C1StructureType_Desc"     =      '327 - Bar/Lounge'     THEN 'Full Service restaurant'
+ WHEN    "C1StructureType_Desc"     =      '331 - Auto Dealer, full service'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '332 - Auto Equipment Service Garage'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '333 - Service Station, full service'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '334 - Service Station, self service'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '336 - Car Wash, Manual'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '337 - Car Wash, Automatic'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '341 - Regional Shopping Mall'     THEN 'strip mall'
+ WHEN    "C1StructureType_Desc"     =      '344 - Strip Shopping Center'     THEN 'strip mall'
+ WHEN    "C1StructureType_Desc"     =      '345 - Discount Department Store'     THEN 'strip mall'
+ WHEN    "C1StructureType_Desc"     =      '346 - Department Store'     THEN 'strip mall'
+ WHEN    "C1StructureType_Desc"     =      '347 - Supermarket'     THEN 'supermarket'
+ WHEN    "C1StructureType_Desc"     =      '348 - Convenience Store'     THEN 'stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '349 - Medical Office Building'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '350 - Bank, Drive-up'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '351 - Bank'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '352 - Savings Institution'    THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '353 - Office Building, Low Rise (1 to 4 stories)'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '354 - Office Building, High Rise ( 5 stories & up)'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '355 - Office Condominium'     THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '356 - Retail Condominium'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '362 - Veterinary Clinic'     THEN 'hospital'
+ WHEN    "C1StructureType_Desc"     =      '367 - Social/Fraternal Hall'     THEN 'Full Service restaurant'
+ WHEN    "C1StructureType_Desc"     =      '369 - Day Care Center'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '371 - Multi-purpose, Downtown Row Type'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '373 - Multi-purpose, Retail, single occupancy'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '374 - Multi-purpose, Retail, multi-occupancy'    THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '381 - Bowling Alley'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '382 - Skating Rink'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '383 - Health Spa'    THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '391 - Cold Storage Facility'     THEN 'stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '393 - Distribution Warehouse'    THEN 'non-refrigerated warehouse'
+ WHEN    "C1StructureType_Desc"     =      '395 - Truck Terminal'    THEN 'non-refrigerated warehouse'
+ WHEN    "C1StructureType_Desc"     =      '396 - Mini Warehouse'     THEN 'non-refrigerated warehouse'
+ WHEN    "C1StructureType_Desc"     =      '397 - Flex Warehouse'     THEN 'non-refrigerated warehouse'
+ WHEN    "C1StructureType_Desc"     =      '398 - Warehouse'     THEN 'non-refrigerated warehouse'
+ WHEN    "C1StructureType_Desc"     =      '611 - School'     THEN 'secondary school'
+ WHEN    "C1StructureType_Desc"     =      '612 - College/University'     THEN 'secondary school'
+ WHEN    "C1StructureType_Desc"     =      '613 - Dormitory'     THEN 'MMFRB'
+ WHEN    "C1StructureType_Desc"     =      '614 - Church'    THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '620 - Auditorium'    THEN 'Office'
+ WHEN    "C1StructureType_Desc"     =      '640 - Hospital'    THEN 'Hospital'
+ WHEN    "C1StructureType_Desc"     =      '650 - Post Office'     THEN 'Stand-alone retail'
+ WHEN    "C1StructureType_Desc"     =      '701 - Mobile Home Park, < 10 spaces'     THEN 'SFR'
+ WHEN    "C1StructureType_Desc"     =      '702 - Mobile Home Park, 10-50 spaces'     THEN 'SFR'
+ WHEN    "C1StructureType_Desc"     =      '703 - Mobile Home Park, > 50 spaces'    THEN 'SFR'
+  ELSE  "Archetype" 
+END,    "Archetype"   )
+
+EXAMPLE 9: Converting the building typologies to the appropriate load factor in Dalla Rosa et al., (2012)
+CASE 
+  WHEN   "Archetype"     =     'Full Service Restaurant'    THEN .39
+  WHEN   "Archetype"     =      'Hospital'     THEN .50
+  WHEN   "Archetype"     =      'Large Hotel'     THEN .60
+  WHEN   "Archetype"     =      'MMFRB'     THEN .51
+  WHEN   "Archetype"     =      'Non-refrigerated warehouse'     THEN .13
+  WHEN   "Archetype"     =      'None-refrigerate warehouse'     THEN .13
+  WHEN   "Archetype"     =      'Office'     THEN .47
+  WHEN   "Archetype"     =      'Secondary School'     THEN .49
+  WHEN   "Archetype"     =      'SFR'     THEN .40
+  WHEN   "Archetype"     =      'Small Hotel/Motel'     THEN .53
+  WHEN   "Archetype"     =      'Stand-alone Retail'     THEN .29
+  WHEN   "Archetype"     =      'Supermarket'     THEN .24
+  ELSE NULL
+END
+
+EXAMPLE 10: Determining the peak demand using the HDD percentage (17.54%) in January (744 hours) for McCall, Idaho.
+(( "Annual demand kWh"  *.80) * .1754)/(744* "Load Factor" )
