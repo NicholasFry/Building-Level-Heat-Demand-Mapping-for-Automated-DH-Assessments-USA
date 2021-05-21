@@ -5,3 +5,5 @@ Mapping methods found in that work should be easily replicable in other states a
 Note: This method is for properties without tax or revenue exemptions. 
 
 District heating will play a significant role in building stock decarbonization as the country and the world moves on with a necessary energy transition, away from fossil fuel combustion. 
+
+https://doi.org/10.1016/j.enbuild.2021.111075
